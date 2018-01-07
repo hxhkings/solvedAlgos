@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta charset="UTF-8">
+	<script>
+		window.onload=function(){
+			
+			for (let i = 0; i < 5; ++i) {
+  setTimeout(function () {
+    console.log(i); // output '5' 5 times
+  }, 100);  
+  	function fib(a){ 
+  		if(a < 2){return 1;}
+  		return fib(a-1)*a;} 
+  		var fibs = fib(20);
+  		document.write(fibs + "<br><br>");
+  	function validParentheses(parens){ // evaluates if parentheses are placed right and all-closed
+		  //TODO 
+		  var i = 0,j = 0; parens = parens.split("");
+		  for(var k = 0; k < parens.length; k++){parens[k] === "(" ? i++:j++;}
+		  if(parens[0] === ")"|| parens[parens.length-1] ==="("){return false;} else{
+		   return i===j;}
+		}
+  		function solution(number){
+			 var arr = []; //returns the sum of values below number that are multiples of 3 or 5
+			 for(var i = 2; i < number; i++){arr.push(i);}
+			 if(arr.filter(function(val){return val%3===0||val%5===0;}).length){
+			 return arr.filter(function(val){return val%3===0||val%5===0;}).reduce(function(a,b){return a+b;})} 
+			 else{return 0;}}
+}		function dirReduc(arr){
+			  // ...			//returns an array of more accurate direction
+			  var arrObj = {"NORTH":"SOUTH", "SOUTH":"NORTH", "WEST":"EAST", "EAST":"WEST"};
+			  var i = 0;
+			 while( i < arr.length-1){
+			 if(arr[i].toUpperCase()===arrObj[arr[i+1].toUpperCase()]){
+			 arr.splice(i,2);i=0;}
+			 else if(arr[i-1]&&arr[i].toUpperCase()===arrObj[arr[i-1].toUpperCase()]){
+			 arr.splice(i-1,2);i=0;}
+			 else{i++;}} 
+			 return arr;
+			}
+			function score( dice ) {
+			  // Fill me in!
+			  dice = dice.sort();
+			  var dObj = {31:1000, 36:600, 35:500, 34:400, 33:300, 32:200, 11:100,15:50};
+			  var sum = [], totalStr = [], totalPts = 0, val; 
+			  dice.forEach(d=>{if(d!==val){ val = d;
+			  	sum.push(dice.filter(x=>{return x === d;}));}});
+			  for(var i = 0; i<sum.length;i++){
+			  	 
+			  	if(sum[i][0]===1 && sum[i].length === 2 || sum[i][0]===5 && sum[i].length ===2){
+			  		totalStr.push("1" + sum[i][0], "1" + sum[i][0]);} 
+			  	else if(sum[i][0]===1 && sum[i].length === 4 || sum[i][0]===5 && sum[i].length ===4){
+			  		totalStr.push("1" + sum[i][0], "3" + sum[i][0]);
+			  	} else if(sum[i][0]===1 && sum[i].length === 5 || sum[i][0]===5 && sum[i].length ===5){
+			  		totalStr.push("1" + sum[i][0],"1"+sum[i][0], "3" + sum[i][0]);
+			  	} else{
+			  		var index = sum[i].length + "" + sum[i][0];
+			  		if(dObj.hasOwnProperty(index)) totalStr.push(index);}
+			  	}
+			  for(i=0; i < totalStr.length; i++){
+			  	if(totalStr[i]) totalPts += dObj[totalStr[i]];
+			  }
+			  return totalPts;
+			}
+			function score( dice ) {
+			  var dc = [0,0,0,0,0,0];
+			  var tdr = [1000,200,300,400,500,600];
+			  var sdr = [100,0,0,0,50,0];
+			  dice.forEach(function(x){ dc[x-1]++; });
+			  return dc.reduce(function(s,x,i){ 
+			    return s + (x >= 3? tdr[i] : 0) + sdr[i]*(x % 3);
+			  },0);
+			}
+			
+		function divisors(integer) {
+			 var int = [];		//returns an array of divisors if integer is not a prime number
+			 for(var i = 2; i < integer; i++){int.push(i)}
+			 if(int.filter(function(val){return integer%val===0;}).length>0){
+			 return int.filter(function(val){return integer%val===0;});} else {
+			 return integer + " is prime";}
+			};
+		function steamrollArray(arr) {
+		  // I'm a steamroller, baby
+		  var newArr = [];
+		  for(var i = 0;i < arr.length; i++){
+		    if(!Array.isArray(arr[i])){
+		    } else {
+		      for(var j = 0; j < arr[i].length; j++){
+		        arr.push(arr[i][j]);}}}
+		  for(i = 0; i < arr.length; i++){
+		    if(!Array.isArray(arr[i])){newArr.push(arr[i]);}
+		  }
+		  return newArr.sort();
+		}
+		//555-555-5555
+		//(555)555-5555
+		//(555) 555-5555
+		//555 555 5555
+		//5555555555
+		//1 555 555 5555
+		function telephoneCheck(str) {
+			  // Good luck!
+			 if(str.match(/\d{3}-\d{3}-\d{4}/) == str|| str.match(/1\s\d{3}\s\d{3}\s\d{4}/) == str || str.match(/\d{10}/) == str || str.match(/1\s[^\s\d\w-]\d{3}[^\s\d\w-]\s\d{3}-\d{4}/) == str || str.match(/1\s\d{3}-\d{3}-\d{4}/) == str || str.match(/[\s\d\w]\d{3}[\s\w\d]\d{3}-\d{4}/) == str || str.match(/1[^\s\d\w-]\d{3}[^\s\w\d-]\d{3}-\d{4}/) == str || str.match(/[^\s\d\w-]\d{3}[^\s\d\w-]\d{3}-\d{4}/) == str){
+			  return true;
+			} else {
+			  return false;
+			}
+			}
+		function sym(args) {
+		  var arr = [];
+		   for(var i = 0; i < arguments.length; i++){
+		  var k = 0; while(k < arguments[i].length){
+		  if(arguments[i].indexOf(arguments[i][k])!==arguments[i].lastIndexOf(arguments[i][k]))    {arguments[i].splice(k,1);} else{k++;}}
+		    arr.push(arguments[i]);
+		   } 
+		  while(arr[0] && arr[1]){
+		  var j = 0;
+		  while( j < arr[0].length){
+		    if(arr[1].indexOf(arr[0][j]) > -1){
+		       arr[1].splice(arr[1].indexOf(arr[0][j]),1);
+		      arr[0].splice(j,1);
+		     j = 0;
+		    } else{arr[1].push(arr[0][j]); arr[0].splice(j,1);j++;}    
+		    }
+		  if(arr[0].length<1){arr.splice(0,1);}} 
+		  return arr[0].sort();
+		}
+		function checkCashRegister(price, cash, cid) {
+			  var change = cash - price, cidArr = [], changeArr=[];
+			  var cidObj = {"PENNY":0.01, "NICKEL": 0.05, "DIME": 0.10, "QUARTER":0.25, "ONE":1,   "FIVE":5, "TEN":10, "TWENTY":20, "ONE HUNDRED":100};
+			  // Here is your change, ma'am.
+			for(var i = 0; i < cid.length; i++){
+			   cidArr.push(cid[i][1]);}
+			  if(cidArr.reduce(function(a,b){return a+b;}) < change ){
+			    return "Insufficient Funds";
+			  } else if (cidArr.reduce(function(a,b){return a+b;}) === change){
+			    return "Closed";
+			  }
+			 for(i = cidArr.length-1; i >=0; i--){
+			   if(cidObj[cid[i][0]]<= change){
+			     cid[i].splice(1,1,0);
+			     while(cidObj[cid[i][0]] <= cidArr[i] && change !== 0 && change >= cidObj[cid[i][0]]-0.01){
+			     cidArr[i] = cidArr[i] - cidObj[cid[i][0]];
+			     cid[i][1] = cid[i][1] + cidObj[cid[i][0]];
+			     change = change - cidObj[cid[i][0]];
+			     }
+			     changeArr.push(cid[i]);} 
+			   if(cidArr[1] === 0 && change > 0){return "Insufficient Funds";}  
+			 }
+			  return changeArr.join(" + ");
+			}
+			 
+			 function rgb(r, g, b){ //rgb to hex function
+				  // complete this function
+				  var arr = [];
+				   for(var i = 0; i < arguments.length; i++){
+				   if (arguments[i] < 0) arguments[i] = 0; if(arguments[i] > 255) arguments[i]=255;
+				   arr.push(arguments[i].toString(16).toUpperCase());
+				   }
+				   for(i = 0; i < arr.length; i++){ if (arr[i].length === 1) arr[i] = "0" + arr[i];}
+				return arr.join("");
+				}
+
+			function mix(s1, s2) {
+			  // your code
+			  var arr1 = []; s1 = s1.split(""); var farr = [];
+			  var arr2 = []; s2 = s2.split("");
+			  for(var i = 0; i < s1.length; i++){
+			    arr1.push(s1.filter(val=>{return val.match(/[a-z]/) && val == s1[i];})); 
+			    } arr1 = arr1.filter(val=>{return val.length >=2;}); s1 = [];
+			  for(i = 0; i < s2.length; i++){
+			  arr2.push(s2.filter(val=>{return val.match(/[a-z]/) && val == s2[i];}));
+			  } arr2 = arr2.filter(val =>{return val.length >=2;}); s2 = [];
+			  for(i = 0; i < arr1.length; i++){
+			    if(s1.indexOf(arr1[i].join("")) ===-1) s1.push(arr1[i].length, arr1[i].join(""));}
+			  for(i = 0; i < arr2.length; i++){
+			    if(s2.indexOf(arr2[i].join("")) ===-1) s2.push(arr2[i].length, arr2[i].join(""));}
+			  
+			return s1 + s2;}
+			 var winCombos = [[0, 1, 2], [3, 4, 5], [6, 7, 8], [0, 3, 6], [1, 4, 7], [2, 5, 8], [0, 4, 8], [2, 4, 6]];
+			 var whatev = [0,2,3,5,6];
+			winCombos.forEach(a=>{if(a.filter(x=>{return whatev.indexOf(x) > -1;}).length === a.length) whatev = a;});
+			console.log(whatev);
+			document.write(steamrollArray([[[1], [2]],[3,[[4]]]]) + "<br><br>");
+			document.write(telephoneCheck("1 555)555-5555") + "<br><br>");
+			document.write(sym([3, 3, 3, 2, 5], [2, 1, 5, 7], [3, 4, 6, 6], [1, 2, 3], [5, 3, 9, 8], [1]) + "<br><br>");
+			document.write(dirReduc(["NORTH", "SOUTH", "SOUTH", "EAST", "WEST", "NORTH", "WEST"]) + "<br><br>");
+			document.write(checkCashRegister(3.26, 100.00, [["PENNY", 1.01], ["NICKEL", 2.05], ["DIME", 3.10], ["QUARTER", 4.25], ["ONE", 90.00], ["FIVE", 55.00], ["TEN", 20.00], ["TWENTY", 60.00], ["ONE HUNDRED", 100.00]])
+ + "<br><br>");
+		};
+
+		
+	</script>
+</head>
+<body>
+
+</body>
+</html>

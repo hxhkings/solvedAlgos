@@ -1,0 +1,53 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+
+
+<script>
+	
+function solution(A) {
+    // write your code in JavaScript (Node.js 6.4.0)
+    var k = 0;
+    var newA = A.sort((a,b) => a-b);
+    var n = newA[newA.length-1];
+    var arr = [];
+    var test = newA[0];
+   	while(!newA.every(a => a === test)){
+        for(var i = 0; i < newA.length; i++){
+            if(newA[i] + 1 === newA[i + 1]){return -1;}
+            if(newA[i] === n){
+                arr.push(newA[i] - 1);
+            } else {
+                arr.push(newA[i] + 1);
+            }  
+        }
+        newA = arr.sort((a,b) => a-b);
+        test = newA[0];
+        n = newA[newA.length-1];
+        arr = [];
+        k++;
+	}
+    return k;   
+}
+
+
+
+
+var x = solution([11, 3, 7, 1, 13] );
+console.log(x);
+
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
