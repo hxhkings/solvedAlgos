@@ -102,12 +102,8 @@
 		//1 555 555 5555
 		function telephoneCheck(str) {
 			  // Good luck!
-			 if(str.match(/\d{3}-\d{3}-\d{4}/) == str|| str.match(/1\s\d{3}\s\d{3}\s\d{4}/) == str || str.match(/\d{10}/) == str || str.match(/1\s[^\s\d\w-]\d{3}[^\s\d\w-]\s\d{3}-\d{4}/) == str || str.match(/1\s\d{3}-\d{3}-\d{4}/) == str || str.match(/[\s\d\w]\d{3}[\s\w\d]\d{3}-\d{4}/) == str || str.match(/1[^\s\d\w-]\d{3}[^\s\w\d-]\d{3}-\d{4}/) == str || str.match(/[^\s\d\w-]\d{3}[^\s\d\w-]\d{3}-\d{4}/) == str){
-			  return true;
-			} else {
-			  return false;
-			}
-			}
+			return (str.match(/\d{3}-\d{3}-\d{4}/) == str|| str.match(/1\s\d{3}\s\d{3}\s\d{4}/) == str || str.match(/\d{10}/) == str || str.match(/1\s[^\s\d\w-]\d{3}[^\s\d\w-]\s\d{3}-\d{4}/) == str || str.match(/1\s\d{3}-\d{3}-\d{4}/) == str || str.match(/[\s\d\w]\d{3}[\s\w\d]\d{3}-\d{4}/) == str || str.match(/1[^\s\d\w-]\d{3}[^\s\w\d-]\d{3}-\d{4}/) == str || str.match(/[^\s\d\w-]\d{3}[^\s\d\w-]\d{3}-\d{4}/) == str);
+		}
 		function sym(args) {
 		  var arr = [];
 		   for(var i = 0; i < arguments.length; i++){
